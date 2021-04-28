@@ -1,0 +1,1 @@
+export "package:signup_login_template_v1/splash_page.dart";

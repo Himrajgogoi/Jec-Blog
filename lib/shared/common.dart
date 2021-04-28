@@ -1,0 +1,1 @@
+export "package:signup_login_template_v1/shared/loading_indicator.dart";
