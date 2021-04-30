@@ -41,15 +41,24 @@ class _SpecificArticleState extends State<SpecificArticle> {
         ): Column(
           crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-            Container(
-              height: 250,
-              decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage("${data["image"]}"),
-                 fit: BoxFit.fill,
-                colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.9), BlendMode.dstATop)
-              ),
-            ),),
+               data["image"] != null? Container(
+               height: 250,
+               decoration: BoxDecoration(
+                  image: DecorationImage(
+                  image: NetworkImage(data["image"]),
+                  fit: BoxFit.fill
+                  )
+                ),
+                 ): Container(
+                   height: 200,
+                   child: Center(
+                   child: Icon(
+                   Icons.article_sharp,
+                   size: 60.0,
+                 )
+                 ),
+                color: Colors.red[200],
+               ),
               Padding(padding: EdgeInsets.fromLTRB(20, 20, 20, 10),
               child:
                   Text("${data["header"]}",

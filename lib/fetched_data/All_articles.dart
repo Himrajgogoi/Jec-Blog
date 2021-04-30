@@ -38,10 +38,11 @@ class AllArticles{
        req.fields['username'] = username;
        req.fields['textArea'] = textArea;
        req.fields['header'] = header;
-       req.files.add(
-         await MultipartFile.fromPath('image', image)
-       );
-
+       if(image != null){
+         req.files.add(
+             await MultipartFile.fromPath('image', image)
+         );
+       }
        var res = await req.send();
        print(res.statusCode);
        if(res.statusCode == 201){
@@ -61,7 +62,6 @@ class AllArticles{
           "Authorization":  "token $_token"
         });
     article = jsonDecode(response.body);
-    print(article);
     }
     catch(e){
       message = e.toString();

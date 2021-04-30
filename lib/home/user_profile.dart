@@ -87,7 +87,7 @@ class _UserProfileState extends State<UserProfile> {
               SizedBox(height:5.0),
               Padding(
                 padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
-                child: Container(
+                child: item["image"] != null? Container(
                   height: 200,
                   decoration: BoxDecoration(
                       image: DecorationImage(
@@ -95,6 +95,15 @@ class _UserProfileState extends State<UserProfile> {
                           fit: BoxFit.fill
                       )
                   ),
+                ): Container(
+                  height: 200,
+                  child: Center(
+                      child: Icon(
+                        Icons.article_sharp,
+                        size: 60.0,
+                      )
+                  ),
+                  color: Colors.red[200],
                 ),
               ),
               Padding(
@@ -158,6 +167,12 @@ class _UserProfileState extends State<UserProfile> {
                     ],
                   ),
                   SizedBox(height: 30.0,),
+                  CircleAvatar(
+                    minRadius: 40,
+                    maxRadius: 60,
+                    backgroundImage: NetworkImage("${data["user_profile"]["dp"]}"),
+                  ),
+                  SizedBox(height: 25.0,),
                   Padding(padding: const EdgeInsets.only(left: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -165,17 +180,14 @@ class _UserProfileState extends State<UserProfile> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-
-                              Text("${data["username"]}",style: TextStyle(
-                                  fontSize: 35.0
-                              ),),
+                              Text("${data["username"]}",
+                                style: TextStyle(
+                                  fontSize: 30.0
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,),
                             ],
                           ),
-                          CircleAvatar(
-                            minRadius: 40,
-                            maxRadius: 60,
-                            backgroundImage: NetworkImage("${data["user_profile"]["dp"]}"),
-                          )
                         ],
                       )),
                   SizedBox(height: 20.0,),

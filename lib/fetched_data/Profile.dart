@@ -42,7 +42,7 @@ class Profile {
       });
 
       data = jsonDecode(response.body);
-      print(data);}
+     }
       catch(e){
         message = e.toString();
       }
@@ -79,7 +79,7 @@ class Profile {
   }
 
   Future<void> fullUpdate(int id, String bio, var dp) async {
-    var req = MultipartRequest('PUT', Uri.parse("http://10.0.2.2:8000/api/user/profile/$id"));
+    var req = MultipartRequest('PUT', Uri.parse("http://10.0.2.2:8000/api/user/profile/$id/"));
     req.headers["Authorization"] = "token $_token";
     req.files.add(
         await MultipartFile.fromPath('dp', dp)

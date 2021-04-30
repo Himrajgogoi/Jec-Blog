@@ -17,7 +17,7 @@ class LoggedIn extends AuthenticateEvent {
   List<Object> get props => [user];
 
   @override
-  String toString() => 'LoggedIn {user: ${user.username.toString()}}';
+  String toString() => 'LoggedIn';
 }
 
 

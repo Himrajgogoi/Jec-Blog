@@ -135,7 +135,7 @@ class _AddArticleState extends State<AddArticle> {
                                Saved_for_Editing art = Saved_for_Editing(header: header, textArea: textArea, image: image);
                                await art.insertArticle();
                                list = await art.getArticles();
-                               print(list);
+                               Navigator.popAndPushNamed(context, "home");
                              }
                              else{
                                print("update is run");
@@ -145,7 +145,7 @@ class _AddArticleState extends State<AddArticle> {
                                Saved_for_Editing arti = Saved_for_Editing(header: header, textArea: textArea, image: image);
                                await arti.update({"articleId": id, "header": header, "textArea": textArea, "image": image});
                                list = await arti.getArticles();
-                               print(list);
+                               Navigator.popAndPushNamed(context, "home");
                              }
                        }
 

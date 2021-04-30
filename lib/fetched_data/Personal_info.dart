@@ -23,7 +23,7 @@ class PersonalInfo {
       "Authorization":  "token $_token"
     });
     data = jsonDecode(response.body);
-    print(data);}
+   }
     catch(e){
       message = e.toString();
     }

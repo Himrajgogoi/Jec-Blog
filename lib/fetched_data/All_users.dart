@@ -23,7 +23,6 @@ class AllUsers{
           "Authorization":  "token $_token"
         });
     data = jsonDecode(response.body);
-    print(data);
     }
     catch(e){
       message = e.toString();
@@ -39,7 +38,7 @@ class AllUsers{
           "Authorization":  "token $_token"
         });
     user = jsonDecode(response.body);
-    print(user);}
+    }
     catch(e){
      message = e.toString();
     }

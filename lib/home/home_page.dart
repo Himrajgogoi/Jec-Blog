@@ -32,7 +32,6 @@ class _HomePageState extends State<HomePage> {
     RecentArticles art = RecentArticles();
     await art.getToken();
     await art.getData();
-    print(art.data);
 
     setState(() {
       list = art.data;
@@ -115,14 +114,23 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height:5.0),
             Padding(
               padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
-              child: Container(
+              child: item["image"] != null? Container(
                 height: 200,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(item["image"]),
-                      fit: BoxFit.fill
-                  )
+                    image: DecorationImage(
+                        image: NetworkImage(item["image"]),
+                        fit: BoxFit.fill
+                    )
                 ),
+              ): Container(
+                height: 200,
+                child: Center(
+                    child: Icon(
+                      Icons.article_sharp,
+                      size: 60.0,
+                    )
+                ),
+                color: Colors.red[200],
               ),
             ),
             Padding(

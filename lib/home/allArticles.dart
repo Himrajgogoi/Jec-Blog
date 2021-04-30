@@ -107,14 +107,23 @@ class _AllState extends State<All> {
               SizedBox(height:5.0),
               Padding(
                 padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
-                child:  Container(
+                child: item["image"] != null? Container(
+                height: 200,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: NetworkImage(item["image"]),
+                        fit: BoxFit.fill
+                    )
+                ),
+              ): Container(
                   height: 200,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: NetworkImage(item["image"]),
-                          fit: BoxFit.fill
-                      )
+                  child: Center(
+                    child: Icon(
+                      Icons.article_sharp,
+                      size: 60.0,
+                    )
                   ),
+                  color: Colors.red[200],
                 ),
               ),
               Padding(

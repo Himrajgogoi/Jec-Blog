@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class SplashPage extends StatelessWidget {
   @override
@@ -6,7 +7,10 @@ class SplashPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blue[900],
       body: Center(
-        child: Text("Loading...")
+        child: SpinKitHourGlass(
+          color: Colors.white,
+          size: 50.0
+        )
       )
     );
   }

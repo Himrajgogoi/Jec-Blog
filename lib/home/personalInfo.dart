@@ -148,6 +148,14 @@ class _personalInfoState extends State<personalInfo> {
                       ],
                     ),
                     SizedBox(height: 30.0,),
+                    Center(
+                      child: CircleAvatar(
+                        minRadius: 40,
+                        maxRadius: 60,
+                        backgroundImage: NetworkImage("${data["user_profile"]["dp"]}"),
+                      ),
+                    ),
+                    SizedBox(height: 25.0,),
                     Padding(padding: const EdgeInsets.only(left: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -160,15 +168,12 @@ class _personalInfoState extends State<personalInfo> {
                                   fontSize: 35.0
                                 ),),
                                 Text("${data["username"]}.",style: TextStyle(
-                                    fontSize: 35.0
-                                ),),
+                                    fontSize: 30.0
+                                ),
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,),
                               ],
                             ),
-                            CircleAvatar(
-                              minRadius: 40,
-                              maxRadius: 60,
-                              backgroundImage: NetworkImage("${data["user_profile"]["dp"]}"),
-                            )
                           ],
                         )),
                     SizedBox(height: 20.0,),
